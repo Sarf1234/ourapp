@@ -4,13 +4,15 @@ import Credentials from "next-auth/providers/credentials"
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
+      name:'credentials',
       credentials: {
-        username: { label: "Username" },
+        username: { label: "Username", type:'email'},
         password: { label: "Password", type: "password" },
       },
       authorize: async (credentials) => {
         const user_id = credentials.username
         const password = credentials.password;
+        console.log(credentials.username, credentials.password,"password")
       
         if (!user_id ||!password) {
           throw new CredentialsSignin("please enter your username and password")
