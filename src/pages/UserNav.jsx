@@ -5,7 +5,7 @@ import { CiShoppingCart } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { FaCamera } from "react-icons/fa";
-import DropDown from "@/app/ui/DropDown";
+import DropDown from "@/ui/DropDown";
 
 const Page = () => {
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,15 +104,15 @@ const DropDown = () => {
               </a>
             </div>
             <div className="py-1" role="none">
-              <a
-                href="#"
+              <Link
+                href="/login"
                 className="block px-4 py-2 text-sm text-gray-700"
                 role="menuitem"
                 tabindex="-1"
                 id="menu-item-6"
               >
-                Delete
-              </a>
+                Login
+              </Link>
             </div>
           </div>
         )}

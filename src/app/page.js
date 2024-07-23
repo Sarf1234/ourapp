@@ -1,8 +1,7 @@
 'use client'
-import AdminHomePage from "@/Components/admin/AdminHomePage";
-import UserHomePage from "@/Components/customer/UserHomePage";
-import VendorHomePage from "@/Components/vendor/VendorHomePage";
-import Image from "next/image";
+import AdminHomePage from "@/pages/AdminHomePage";
+import UserHomePage from "@/pages/UserHomePage";
+import VendorHomePage from "@/pages/VendorHomePage";
 import useUserloginStatus from '@/context/UserloginStatus'
 
 export default function Home() {

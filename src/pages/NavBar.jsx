@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
-import VendroNav from '../Components/vendor/VendroNav'
-import UserNav from '../Components/customer/UserNav'
-import AdminNav from '../Components/admin/AdminNav'
+import VendroNav from './VendroNav'
+import UserNav from './UserNav'
+import AdminNav from './AdminNav'
 import useUserloginStatus from '@/context/UserloginStatus'
 
 const NavBar = () => {
