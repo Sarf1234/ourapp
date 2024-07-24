@@ -1,12 +1,11 @@
-'use client'
 import AdminHomePage from "@/pages/AdminHomePage";
 import UserHomePage from "@/pages/UserHomePage";
 import VendorHomePage from "@/pages/VendorHomePage";
-import useUserloginStatus from '@/context/UserloginStatus'
+import { auth } from '../auth';
 
-export default function Home() {
-  const { isloggedin, loginRole } = useUserloginStatus()
-  
+export default async function Home() {
+  const session = await auth()
+   const role = session?.user?.role
   const AdminCheck = (role) => {
     if (role === "admin") {
         return <AdminHomePage></AdminHomePage>;
@@ -19,7 +18,7 @@ export default function Home() {
 
   return(
     <div>
-       {AdminCheck(loginRole)}
+       {AdminCheck(role)}
     </div>
   ) 
 }
