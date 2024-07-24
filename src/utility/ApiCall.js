@@ -1,3 +1,5 @@
+'use Server'
+
 export default async function handleApiRequest(endpoint, method = 'GET', data = null) {
     const requestOptions = {
       method: method.toUpperCase(),
@@ -8,7 +10,7 @@ export default async function handleApiRequest(endpoint, method = 'GET', data = 
     };
   
     try {
-      const response = await fetch(`${process.env.REACT_APP_URL}/${endpoint}`, requestOptions);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/${endpoint}`, requestOptions);
   
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
@@ -22,4 +24,8 @@ export default async function handleApiRequest(endpoint, method = 'GET', data = 
       return { success: false, message: 'An error occurred while processing your request' };
     }
   }
+
+
+
+
   

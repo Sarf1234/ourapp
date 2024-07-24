@@ -5,10 +5,8 @@ import { AuthError } from 'next-auth';
 
 
 const LoginUser = async (FormData) => {
-  console.log(FormData);
   const username = FormData.get('email');
   const password = FormData.get('password');
-  console.log(username, password);
 
   try {
     await signIn('credentials', {

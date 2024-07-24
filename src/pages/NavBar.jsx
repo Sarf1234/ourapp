@@ -1,14 +1,14 @@
-'use client'
 import React from 'react'
 import VendroNav from './VendroNav'
 import UserNav from './UserNav'
 import AdminNav from './AdminNav'
-import useUserloginStatus from '@/context/UserloginStatus'
+import { auth } from '../auth'
 
-const NavBar = () => {
-   
-const { isloggedin, loginRole } = useUserloginStatus()
-  
+const NavBar = async() => {
+   const session = await auth()
+   const role = session?.user?.role
+
+
   const AdminCheck = (role) =>{
     if(role ==="admin"){
       return <AdminNav></AdminNav>
@@ -21,7 +21,7 @@ const { isloggedin, loginRole } = useUserloginStatus()
 
  return ( 
     <div> 
-        {AdminCheck(loginRole)}
+        {AdminCheck(role)}
     </div>
  )
 }

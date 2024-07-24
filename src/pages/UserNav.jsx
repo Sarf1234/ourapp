@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -6,6 +7,7 @@ import { CiSearch } from "react-icons/ci";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { FaCamera } from "react-icons/fa";
 import DropDown from "@/ui/DropDown";
+
 
 const Page = () => {
 
