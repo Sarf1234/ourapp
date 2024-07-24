@@ -1,4 +1,5 @@
 'use server'
+import { redirect } from 'next/navigation';
 import { signIn } from '../auth';
 import { AuthError } from 'next-auth';
 
@@ -14,6 +15,7 @@ const LoginUser = async (FormData) => {
       username,
       password,
       redirect: false,
+      callbackURL: '/',
     });
   } catch (error) {
     if (error instanceof AuthError) {
@@ -27,6 +29,7 @@ const LoginUser = async (FormData) => {
 
     throw error;
   }
+  redirect("/")
 };
 
 export { LoginUser };

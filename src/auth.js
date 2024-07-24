@@ -12,7 +12,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         const user_id = credentials.username
         const password = credentials.password;
-        console.log(credentials.username, credentials.password,"password")
       
         if (!user_id ||!password) {
           throw new CredentialsSignin("please enter your username and password")
@@ -22,8 +21,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/login`, {
             method: "POST",
             body: JSON.stringify({ user_id, password }),
+            timeout: 5000,
           })
-      
+          
           if (!response.ok) {
             throw new Error("Couldn't login with username and password")
           }
@@ -37,6 +37,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`,
             },
+            timeout: 3000,
           })
 
           if (!userDetailsResponse.ok) {
