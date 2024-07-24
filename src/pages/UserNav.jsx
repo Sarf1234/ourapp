@@ -7,11 +7,14 @@ import { CiSearch } from "react-icons/ci";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
 import { FaCamera } from "react-icons/fa";
 import DropDown from "@/ui/DropDown";
+import { useSession, signIn } from "next-auth/react"
 
 
 const Page = () => {
 
   const [iconShow, setIconShow] = useState(true)
+  const session = useSession();
+  console.log(session)
 
   return (
     <header className="md:border-b-[1px] px-2 sm:px-12 md:!px-16 lg:!px-16 2xl:!px-28 w-full">

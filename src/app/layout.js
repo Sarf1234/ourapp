@@ -3,6 +3,7 @@ import '../Style/globals.css'
 import NavBar from "@/pages/NavBar";
 import Footer from "@/pages/Footer";
 import { UserLogin } from '@/context/UserloginStatus'
+import { SessionProvider } from "next-auth/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +16,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <UserLogin>
-           <NavBar />
-             <div className='text-white text-center h-screen border-red-200 bg-red-500'>
-               {children}
-             </div>
-           <Footer />
-        </UserLogin>
+        <SessionProvider>
+          <UserLogin>
+            <NavBar />
+              <div className='text-white text-center h-screen border-red-200 bg-red-500'>
+                {children}
+              </div>
+            <Footer />
+          </UserLogin>
+        </SessionProvider>
       </body>
     </html>
   );
