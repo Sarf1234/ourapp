@@ -55,6 +55,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               profession:userData.profession,
               varified: userData.is_varified,
               profilPick: userData.profile_pic,
+              usertoken: token,
             }
         } catch (error) {
           console.log(error)
@@ -70,6 +71,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async session({session, token}){
       if(token?.sub){
          session.user.role = token.role
+         session.user.token = token.usertoken
       }
       return session;
     },
@@ -78,6 +80,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({user, token}){
        if(user){
          token.role = user.role;
+         token.usertoken = user.usertoken
        }
        return token;
     }
