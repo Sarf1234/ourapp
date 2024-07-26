@@ -14,7 +14,6 @@ const Page = () => {
 
   const [iconShow, setIconShow] = useState(true)
   const session = useSession();
-  console.log(session)
 
   return (
     <header className="md:border-b-[1px] px-2 sm:px-12 md:!px-16 lg:!px-16 2xl:!px-28 w-full">
