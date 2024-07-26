@@ -1,19 +1,27 @@
 'use client'
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { CiShoppingCart } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { LiaFileInvoiceSolid } from "react-icons/lia";
-import { FaCamera } from "react-icons/fa";
+import { FaCamera, FaSignOutAlt } from "react-icons/fa";
 import DropDown from "@/ui/DropDown";
 import { useSession, signIn } from "next-auth/react"
+import MobileNav from '@/pages/MobileNav'
 
 
 const Page = () => {
 
   const [iconShow, setIconShow] = useState(true)
-  const session = useSession();
+  const { data: session, status } = useSession();
+
+  const handleIconShow = useCallback(() => {
+    setIconShow(!iconShow);
+  }, [iconShow]);
+
+
+  console.log(session, status)
 
   return (
     <header className="md:border-b-[1px] px-2 sm:px-12 md:!px-16 lg:!px-16 2xl:!px-28 w-full">
@@ -128,6 +136,10 @@ const Page = () => {
             </div>
           </div>
         </div>
+
+        {/* mobile Nav bar */}
+         <MobileNav  iconShow={iconShow} setIconShow={handleIconShow}/>
+
       </nav>
     </header>
   );
