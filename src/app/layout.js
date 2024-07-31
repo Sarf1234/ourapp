@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <SessionProvider>
           <UserLogin>
             <NavBar />
-              <div className='text-white text-center h-screen border-red-200 bg-red-500'>
+              <div>
                 {children}
               </div>
             <Footer />

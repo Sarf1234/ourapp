@@ -1,9 +1,11 @@
 'use server'
-import handleApiRequest from '../utility/ApiCall'
 
-const userData = async()=>{
-    const data = await handleApiRequest('/user')
-    return data;
-}
+const BannerImages = async () => {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/home/image`, {
+      method: 'GET',
+    });
+  
+    return await response.json();
+  };
 
-export { userData }
+export { BannerImages }

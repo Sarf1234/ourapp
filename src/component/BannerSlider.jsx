@@ -1,7 +1,8 @@
 import { MdxImage as Image } from '@/utility/MdxImage'
+import { BannerImages } from '@/utility/userApiCall'
 
 const BannerSlider = async() => {
-  const data = await fetchImages()
+  const data = await BannerImages()
   const { banner, ads} = data;
   return(
     <div>
@@ -12,13 +13,7 @@ const BannerSlider = async() => {
   )
 };
 
-const fetchImages = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/home/image`, {
-    method: 'GET',
-  });
 
-  return await response.json();
-};
 
 export default BannerSlider;
 
