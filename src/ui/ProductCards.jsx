@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { TbFileInvoice } from "react-icons/tb";
+import AddToCard from "@/ui/AddToCard"
+import AddToQuote from "@/ui/AddToQuote"
+import AddToRental from "@/ui/AddToRental"
+
 
 
 const ProductCards = ({ data }) => {
@@ -42,26 +44,10 @@ const ProductCards = ({ data }) => {
       </div>
     </div>
     <div className="flex justify-between items-center border-t border-b border-gray-200 divide-x-2 py-1">
-      <div
-        className="flex items-center justify-center w-[50%] cursor-pointer"
-      >
-        <div className="flex items-center justify-center text-sm">
-         <TbFileInvoice />
-          Quote
-        </div>
-      </div>
-      <div
-        className="flex items-center justify-center w-[50%] cursor-pointer"
-      >
-        <div className="flex items-center justify-center text-sm">
-          <AiOutlineShoppingCart />
-          Cart
-        </div>
-      </div>
+      <AddToQuote id={data.id}/>
+      <AddToCard id={data.id}/>
     </div>
-    <div className="flex justify-center items-center py-2 rounded-b-2xl h-9 bg-[#144169] text-white cursor-pointer">
-      <div className="text-sm">Add To Rental</div>
-    </div>
+    <AddToRental id={data.id}/>
   </div>
   );
 };
