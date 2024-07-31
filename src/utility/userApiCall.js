@@ -8,4 +8,11 @@ const BannerImages = async () => {
     return await response.json();
   };
 
-export { BannerImages }
+  const RentalHPtDealsApi = async () => {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/hot-deal`, {
+        method: "GET",
+      });
+     return await response.json();
+  };
+
+export { BannerImages, RentalHPtDealsApi }

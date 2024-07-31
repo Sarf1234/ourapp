@@ -21,8 +21,6 @@ const Page = () => {
   }, [iconShow]);
 
 
-  console.log(session, status)
-
   return (
     <header className="md:border-b-[1px] px-2 sm:px-12 md:!px-16 lg:!px-16 2xl:!px-28 w-full">
       <nav className="md:h-[5.5rem] h-16 w-full flex justify-between items-center ">
